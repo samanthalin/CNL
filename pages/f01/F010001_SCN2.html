@@ -54,6 +54,8 @@
 
     <link rel="stylesheet" type="text/css" href="../../css/common.css">
 
+    <link rel="stylesheet" href="../../css/f01/scn2.css">
+
 
     <!-- Java Script -->
     <script type="text/javascript" src="../../js/json3.min.js"></script>
@@ -322,12 +324,12 @@
 
     </script>
 
-    <style type="text/css">
+    <!-- <style type="text/css">
         body {
             padding-top: 46px;
         }
 
-    </style>
+    </style> -->
 
 </head>
 
@@ -700,6 +702,16 @@
             </nav>
         </footer>
     </div>
+
+    <script>
+        $(document).ready(function(){
+            $('.contentContainer').removeClass('col-md-8');
+            $('.hidden-sm').remove();
+            $('#doMergeBt').parent().removeClass('col-md-4');
+            $('#doMergeBt').removeClass('btn-danger');
+            $('.contentContainer').prepend('<div class="title">銀行列印型態維護</div>');
+        });
+    </script>
 </body>
 
 </html>
