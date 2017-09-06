@@ -1,0 +1,78 @@
+<%@page language="java" pageEncoding="utf-8" contentType="text/html;charset=utf-8" %>
+<%@include file="/commons/Taglibs.jsp" %>
+<%@include file="/commons/Variables.jsp" %>
+
+<title>使用者操作錯誤</title>
+
+<head>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// 共用變數區-------------------------------------------------------
+			
+			// 頁面初始化區 -----------------------------------------------------
+			
+			// 事件註冊區 ------------------------------------------------------
+
+			// ----------------------------------------------------------------
+		});
+	</script>
+	
+	<style type="text/css">
+		.error_img{
+			width:320px;
+			height:363px;
+			margin:20px auto;
+			background: url(${contextPath}/images/protected.png) no-repeat center center;
+		}
+		
+		.finish_flex_container {
+		    display: -webkit-flex;
+		    display: flex;
+		    -webkit-align-items: center;
+		    align-items: center;
+		    min-height: 300px;  
+		    min-height: auto; 
+		}	
+		
+		#msg.errors .status_title {																								/* 錯誤顏色 */
+			color:#D32F2F;
+		} 		
+		
+		.pad0 {
+			padding:0px;
+		}
+	</style>
+</head>
+
+
+<body>
+	<stripes:form id="form" action="/Http4xxErrorHandling.action">
+		<!-- -------------------------------------- 隱藏區 -------------------------------------- -->
+		<input type="hidden" id="msg" name="msg" value="${actionBean.msg}" />
+		
+		<!-- -------------------------------------- 查詢區 -------------------------------------- -->
+		<stripes:errors />
+		
+		<div class="container">
+	        <div id="content">
+	        	<div id="msg" class="row errors">
+	            	<div class="col-sm-6 ie-col-sm-6 col-md-4 ie-col-md-4 pad0">
+	                	<div class="error_img"></div>
+	                </div>
+	            </div>
+	        </div>
+	        
+	        <div id="content">
+	        	<div id="msg" class="row errors">
+	            	<div class="col-sm-6 ie-col-sm-6 col-md-8 ie-col-md-8 pad0">
+	                	<div class="finish_flex_container">
+	                    	<div><h2 class="status_title">存取被拒，請與系統管理人員聯絡</h2></div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>	        
+	        
+	    </div>
+	</stripes:form>
+</body>
+

@@ -1,0 +1,55 @@
+/* Box-sizing resets
+ *
+ * 為避免 Bootstrap 3 全域盒子模型（box model） 設置，可以選擇覆寫單獨的頁面元素
+ * 或重置整個盒子模型（box model） 區域。二種選項，單獨頁面的覆寫和重要整個盒子模型
+ * （box model）區域，都能透過純 CSS 或 Less 來設置。
+ */
+
+/* Option 1A: 經由 CSS 覆寫單個頁面元素的 box model */
+.element {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+/* Option 1B: 使用 Bootstrap Less mixin 覆寫單個頁面元素的 box model */
+.element {
+  .box-sizing(content-box);
+}
+
+/* Option 2A: 經由 CSS 重置整個區域 */
+.reset-box-sizing,
+.reset-box-sizing *,
+.reset-box-sizing *:before,
+.reset-box-sizing *:after {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+/* Option 2B: 自訂 Less mixin 重置整個區域 */
+.reset-box-sizing {
+  &,
+  *,
+  *:before,
+  *:after {
+    .box-sizing(content-box);
+  }
+}
+.element {
+  .reset-box-sizing();
+}
+
+/* 用這個class取代原先panel-body，原先的class與EasyUI衝突 */
+.bootstrap-panel-body {
+  padding: 15px;
+}
+
+/* 用這個class取代原先panel-title，原先的class與EasyUI衝突 */
+.bootstrap-panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+  color: inherit;
+}
+

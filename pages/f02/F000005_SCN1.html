@@ -1,0 +1,607 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Context-Script-Type" content="text/javascript">
+<meta http-equiv="pragma" content="no-cache">
+
+<title>系統功能設定</title>
+<!-- HTTP 1.1 -->
+<meta http-equiv="Cache-Control" content="no-store" />
+<!-- HTTP 1.0 -->
+<meta http-equiv="Pragma" content="no-cache" />
+
+<!-- Prevents caching at the Proxy Server -->
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+<!-- For RWD Design -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="x-ua-compatible" content="IE=Edge">
+
+<!-- Icon -->
+<link rel="shortcut icon" href="../../images/chinalife_favicon.png" />
+<link rel="icon" type="image/png" href="../../images/chinalife_favicon.png">
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="../../css/default.css">
+
+<!-- for form validation -->
+<link rel="stylesheet" type="text/css" href="../../css/screen.css">
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<link rel="stylesheet" type="text/css" href="../../css/ie10-viewport-bug-workaround.css">
+
+<!-- for jQuery UI -->
+<link rel="stylesheet" type="text/css" href="../../css/themes/base/jquery.ui.all.css">
+
+<!-- for Bootstrap -->
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap/bootstrap-theme.min.css">
+
+<link rel="stylesheet" type="text/css" href="../../css/jquery.smartmenus.bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap/bootstrap-ext.css">
+
+<!-- for jQuery EasyUI -->
+<link rel="stylesheet" type="text/css" href="../../css/themes/chinalife/easyui.css">
+<!-- <link rel="stylesheet" type="text/css" href="../../css/themes/mobile.css"> -->
+<link rel="stylesheet" type="text/css" href="../../css/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="../../css/easyui-ext.css">
+
+<link rel="stylesheet" type="text/css" href="../../css/select2.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/select2-bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+
+<!-- Java Script -->
+<script type="text/javascript" src="../../js/menu02.js"></script>
+<script type="text/javascript" src="../../js/json3.min.js"></script>
+<script type="text/javascript" src="../../js/html5.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script type="text/javascript" src="../../js/html5shiv.min.js"></script>
+<script type="text/javascript" src="../../js/respond.min.js"></script>
+<![endif]-->
+
+<!-- For Jquery JavaScript Library -->
+<script type="text/javascript" src="../../js/jquery/jquery.min.js"></script>
+
+<script type="text/javascript" src="../../js/jqueryui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="../../js/jqueryui/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="../../js/jqueryui/jquery.ui.datepicker.js"></script>
+<script type="text/javascript" src="../../js/jqueryui/i18n/jquery.ui.datepicker-zh-TW.js"></script>
+
+<script type="text/javascript" src="../../js/jquery/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../js/jquery/easyui-lang-zh_TW.js"></script>
+<script type="text/javascript" src="../../js/jquery/jquery.easyui.ext.js"></script>
+<!-- <script type="text/javascript" src="../../js/jquery/jquery.easyui.mobile.js"></script> -->
+
+<script type="text/javascript" src="../../js/jquery/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../../js/jquery/additional-methods.min.js"></script>
+<script type="text/javascript" src="../../js/jquery/messages_zh_TW.min.js"></script>
+
+<script type="text/javascript" src="../../js/jquery/jquery.base64.min.js"></script>
+<script type="text/javascript" src="../../js/jquery/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="../../js/jquery/select2.min.js"></script>
+<script type="text/javascript" src="../../js/jquery/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../js/jquery/jquery.blockUI.js"></script>
+<script type="text/javascript" src="../../js/jquery/jquery.storageapi.min.js"></script>
+
+<script type="text/javascript" src="../../js/bootstrap.js"></script>
+<script type="text/javascript" src="../../js/jquery/jquery.smartmenus.min.js"></script>
+<script type="text/javascript" src="../../js/jquery/jquery.smartmenus.bootstrap.min.js"></script>
+
+<!-- for 中壽難字library -->
+<!-- <script type="text/javascript" src="../../js/hanlinks/wf.js"></script> -->
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script type="text/javascript" src="../../js/ie10-viewport-bug-workaround.js"></script>
+
+<script type="text/javascript" src="../../js/core/session.js"></script>
+<script type="text/javascript" src="../../js/utils.js"></script>
+
+
+<script type="text/javascript">
+	//var $j = $j || jQuery.noConflict();
+
+	$(document).ready(function() {
+		// 共用變數區-------------------------------------------------------
+
+		// 頁面初始化區 -----------------------------------------------------
+		$('input[type=text], input[type=search], input[type=url], input[type=telephone], input[type=email], input[type=password]').attr('autocomplete', 'off');
+
+		// 事件註冊區 -------------------------------------------------------
+		$('.select2').on('change', function() {
+			$(this).valid();
+		});
+
+	});
+
+	/**
+	 * 取代default alert javascript，這個比較漂亮
+	 */
+	function alert2(msg, title) {
+		title = title || '提示';
+
+		if (!msg) { msg = ''; }
+
+		$.messager.alert(title, msg);
+	}
+
+	/**
+	 * 停用 enter submit
+	 */
+	$(document).keypress(function(e) {
+		// if (e.keyCode == 13) { e.keyCode = 0; return false; }
+	});
+
+	/**
+	 * 預設所有jQuery AJAX Request發生Error時會呼叫此function
+	 */
+	$(document).ajaxError(function(event, jqXHR, ajaxSettings, thrownError) {
+		var status = jqXHR.status;
+
+		if (status == '403') {
+			alert('操作已逾時，系統即將登出');
+			session.signOut();
+		} else {
+			alert('系統發生錯誤，請與系統管理人員聯絡');
+		}
+	});
+
+	/**
+	 * 預設所有jQuery AJAX Request發送前會呼叫此function
+	 */
+	$(document).ajaxSend(function(event, jqXHR, ajaxSettings) {
+		// Timer重新計數
+		if (resetTimeOutInterval) { resetTimeOutInterval(event); }
+
+		// 新增CSRF Header -------------------------------------------------
+		var token = $("meta[name='_csrf']").attr("content");
+		var header = $("meta[name='_csrf_header']").attr("content");
+
+		jqXHR.setRequestHeader(header, token);
+	});
+
+	$.extend($.validator.messages, {
+		required: "此為必填欄位",
+	});
+
+	/**
+	 * 解決form validation在bootstrap中，當驗證錯誤時，若輸入欄位有加icon，會造成欄位破掉
+	 */
+	$.validator.setDefaults({
+	    highlight: function (element, errorClass, validClass) {
+	        if (element.type === "radio") {
+	            this.findByName(element.name).addClass(errorClass).removeClass(validClass);
+	        } else {
+	            $(element).closest('.form-group').removeClass('has-success has-feedback').addClass('has-error has-feedback');
+	        }
+	    },
+	    unhighlight: function (element, errorClass, validClass) {
+	        if (element.type === "radio") {
+	            this.findByName(element.name).removeClass(errorClass).addClass(validClass);
+	        } else {
+	            $(element).closest('.form-group').removeClass('has-error has-feedback').addClass('has-success has-feedback');
+	        }
+	    },
+	    errorElement: 'span',
+	    errorClass: 'help-block',
+	    errorPlacement: function(error, element) {
+	        if(element.parent('.input-group').length) {
+	            error.insertAfter(element.parent());
+	        } else if (element.parent('.radio-inline').length) {
+	            error.insertAfter(element.parent().parent());
+	        } else if (element.hasClass('select2')) {
+	            error.insertAfter(element.next('span'));
+	        } else {
+	            error.insertAfter(element);
+	        }
+	    }
+	});
+
+</script>
+
+<style type="text/css">
+	/** 取代原本datepicker月下拉選單寬度，不調整的話中文會造成表格斷行 */
+	.ui-datepicker select.ui-datepicker-month {
+	 	font-size:12px;
+	 	width: 35%;
+	}
+
+	/** 取代原本datepicker年下拉選單寬度，不調整的話中文會造成表格斷行  */
+	.ui-datepicker select.ui-datepicker-year {
+	 	font-size:12px;
+	 	width: 40%;
+	}
+
+	/** select2 的下拉選單會跟著頁面大小resize */
+	@media screen {
+	    .select2 {
+	        width: 100% !important;
+	    }
+	}
+
+	/** 設定select2驗證錯誤時的樣式 */
+	.has-error .select2-selection {
+		border: 1px solid #a94442;
+		border-radius: 4px;
+	}
+
+</style>
+
+
+
+
+		<script type="text/javascript">
+
+			$(document).ready(function() {
+				// 共用變數區-------------------------------------------------------
+
+				// 頁面初始化區 -----------------------------------------------------
+
+				$('input[placeholder]').placeholder();
+				$('#kaptchaValue').val('');
+
+				$(':input:visible:eq(0)').focus().select();
+
+				// 事件註冊區 -------------------------------------------------------
+				$("#form").validate({
+					rules: {
+						logInAccount: {
+					    	required: true
+						},
+						logInPw: {
+							required: true
+						},
+						kaptchaValue: {
+							required: true
+						}
+					},
+					messages: {
+
+					}
+				});
+
+				$('#regenImgBt').click(function() {																// 重新產生圖形驗證碼
+					$('#kaptchaImg').attr('src', 'kaptcha.jpg');
+				});
+
+				$('#doLogInBt').click(function() {
+					if (!$("#form").valid()) { return false; }
+
+				});
+			});
+
+		</script>
+
+		<style type="text/css">
+			body {
+			  	padding-top: 40px;
+			  	padding-bottom: 40px;
+			 	background-color: #ffffff;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="../../css/decorators.css">
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// 共用變數區-------------------------------------------------------
+				var userAccount = 'user001';
+
+				// 頁面初始化區 -----------------------------------------------------
+				$.cookie("isSessionAlive", 'Y');
+				if (userAccount) { setTimeOutInterval(); }
+
+				$('a[menuType="02"]').attr('target', '_blank');														// 02:項目(另開視窗)
+
+				$('input:not(:disabled):not([readonly]):visible:eq(0)').focus().select();
+				$('input[placeholder]').placeholder();
+
+				// 事件註冊區 -------------------------------------------------------
+
+				$('#logoutAnchor').click(function() {
+					if (!confirm('確認登出?')) { return; }
+					$("#caslogoutForm").submit();
+				});
+			});
+		</script>
+
+	<style type="text/css">
+		body {
+
+		}
+	</style>
+
+	<!-- for 中壽難字library -->
+	<script type="text/javascript" src="../../js/hanlinks/wf.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// 共用變數區-------------------------------------------------------
+
+			// 頁面初始化區 -----------------------------------------------------
+			$('#deptNoSel, #systemSel').select2({
+			    theme: "bootstrap"
+			});
+
+			// 事件註冊區 ------------------------------------------------------
+			$('input[type=text]').blur(function() {
+				$(this).val(trim($(this).val()));
+			});
+
+			$('#userAccount').blur(function() {
+				$(this).val(toUpperCase($(this).val()));
+			});
+
+			$('#clrQryBt').click(function() {
+				$('#form input[type=text]').val('');
+				$('#accountSts').val('');
+				$('#deptNoSel').val('').trigger('change.select2');
+			});
+
+			$('#doQryBt').click(function() {
+				$('#addRoleDiv').addClass('hide');
+				$('#qryRolesResultDiv').addClass('hide');
+
+				doQryUserList();
+			});
+
+			$('#doUpdateBt').click(function() {
+				alert2('更新成功!', '群組權限設定');
+			});
+
+			$('#systemSel').change(function() {
+	        	doLoadMgrRole($(this).val());
+			});
+
+			$('#addRoleBt').click(function() {
+				var systemSel = $('#systemSel').val();
+				var roleUuid = $('#roleSel').val();
+				var userUuid = $('#tmpUserUuid').val();
+
+				if (isBlank(systemSel)) {
+					alert('請選擇應用系統');
+					return;
+				}
+
+				if (isBlank(roleUuid)) {
+					alert('請選擇系統角色');
+					return;
+				}
+
+				if (!confirm('確認新增角色?')) { return; }
+
+				$.ajax({
+					url: './F010001_SCN1.action?doAddUserRole',
+					data: {
+						roleUuid: roleUuid,
+						uuid: userUuid
+					},
+					type: 'POST',
+					async: false,
+					dataType: 'json',
+					success: function(json) {
+						if (isNotBlank(json.msg)) { alert(json.msg); }
+
+						if (json.action == 'Y') {
+							alert('角色已新增');
+
+							$('#qryRolesResultTb').datagrid('reload');
+						}
+					}
+				});
+			});
+		});
+
+		/**
+		 * 查詢使用者清單
+		 */
+		function doQryUserList() {
+			$.blockUI({
+				message: '<img src="../../images/busy.gif" /> Please Wait...'
+			});
+
+			$('#qryResultTb').datagrid({
+			    url:null,
+			    width: '100%',
+			    title: '',
+			    height: 386,
+			    pageNumber: 1,
+			    pagination: false,
+			    rownumbers:true,
+			    singleSelect:true,
+			    showFooter:false,
+			    queryParams: {
+			    	userAccount: toUpperCase($('#userAccount').val()),
+			    	userId: $('#userId').val(),
+			    	userNm: $('#userNm').val(),
+			    	mobileNo: $('#mobileNo').val(),
+			    	deptNo: $('#deptNoSel').val(),
+			    	accountSts: $('#accountSts').val()
+				},
+				onLoadError:function() {
+					$.unblockUI();
+				},
+				onBeforeLoad:function() {
+					$(window).unbind('resize');
+		    	},
+	    	onLoadSuccess: function(data) {
+	    		$.unblockUI();
+	    		$(window).bind("resize", function() {
+	    			$('#qryResultTb').datagrid("resize");
+
+	    			if (isNotBlank($('#tmpUserUuid').val())) {
+	    				$('#qryRolesResultTb').datagrid("resize");
+	    			}
+	    		});
+	    	},
+		    onDblClickRow:function(rowIndex, rowData) {
+		    		doOpenNewWindow(rowData.UUID, rowData.USER_ACCOUNT);
+			  },
+			  frozenColumns:[[
+					{field:'USER_ID', title:'系統功能代碼', width:300, sortable:true, halign: 'center', align:'left'},
+					{field:'USER_NAME', title:'系統功能名稱', width:300, sortable:true, halign: 'center', align:'left'}
+					]],
+				columns:[[
+					{field:'URI', title:'系統功能URI', width:300, sortable:true, halign: 'center', align:'left'}
+				]],
+			  toolbar:[
+				  {
+				    	id:'addBt',
+				      text:'新增系統功能',
+				      iconCls:'icon-add',
+				      handler:function() {
+				      	doOpenNewWindow('', '');
+								$('#addRoleDiv').addClass('hide');
+								$('#qryRolesResultDiv').addClass('hide');
+				      }				
+				  }, {
+				    	id:'updBt',
+				      text:'更新系統功能',
+				      iconCls:'icon-edit',
+				      handler:function() {
+				       	if ($('#qryResultTb').datagrid('getSelections').length < 1) {
+									alert('請選擇欲更新的系統功能!');
+									return;
+								}
+				        	
+				      	var row = $('#qryResultTb').datagrid('getSelected');
+				      	doOpenNewWindow(row.UUID, row.USER_ACCOUNT);
+				        	
+								$('#addRoleDiv').addClass('hide');
+								$('#qryRolesResultDiv').addClass('hide');
+				      }						
+					}, {
+				    	id:'removeBt',
+				      text:'刪除系統功能',
+				      iconCls:'icon-cancel',
+				      handler:function() {
+				       	if ($('#qryResultTb').datagrid('getSelections').length < 1) {
+									alert('請選擇欲刪除的系統功能!');
+									return;
+								}
+				        	
+				        if (!confirm('確認刪除系統功能?')) { return; }
+				        if (!confirm('請再次確認是否刪除?')) { return; }
+				        	
+				       	var row = $('#qryResultTb').datagrid('getSelected');
+				       	doDelUser(row.UUID, row.USER_ACCOUNT);
+				        	
+								$('#addRoleDiv').addClass('hide');
+								$('#qryRolesResultDiv').addClass('hide');
+				      }
+					}
+			  ]
+				});
+
+			var user = {total:8,rows:[
+				{USER_ID:'F020001',USER_NAME:'經代電子照會列印查詢',URI:'/F02/F020001.action',COMM_NAME:'宏國通訊處'},
+				{USER_ID:'F020002',USER_NAME:'經代列印型態維護',URI:'/F02/F020002.action',COMM_NAME:'宏國通訊處'},
+				{USER_ID:'F020003',USER_NAME:'經代E_mail維護',URI:'/F02/F020003.action',COMM_NAME:'宏國通訊處'},
+				{USER_ID:'F020004',USER_NAME:'經代電子郵件設定',URI:'/F02/F020004.action',COMM_NAME:'宏發通訊處'},
+				{USER_ID:'F020005',USER_NAME:'系統功能設定',URI:'/F02/F000001.action',COMM_NAME:'宏發通訊處'},
+				{USER_ID:'F020006',USER_NAME:'群組權限設定',URI:'/F02/F000002.action',COMM_NAME:'宏觀通訊處'},
+				{USER_ID:'F020007',USER_NAME:'下載中心',URI:'/F02/F000005.action',COMM_NAME:'宏觀通訊處'},
+        ]};
+     $('#qryResultTb').datagrid('loadData',user).datagrid('acceptChanges');
+
+		}
+
+		/**
+		 * 刪除使用者
+		 */
+		function doDelUser(uuid, userAccount) {
+			$.ajax({
+				url: './F010001_SCN1.action?doDelUser',
+				data: {
+					uuid: uuid,
+					userAccount: userAccount
+				},
+				type: 'POST',
+				async: false,
+				dataType: 'json',
+				success: function(json) {
+					if (isNotBlank(json.msg)) { alert(json.msg); }
+
+					if (json.action == 'Y') {
+						alert('資料已刪除');
+						reloadTable();
+					}
+				}
+			});
+		}
+
+		/**
+		 * 開啟新頁面，執行新增/修改
+		 */
+		function doOpenNewWindow(uuid, userAccount) {
+			$('#newWindowForm input[name=uuid]').val(uuid);
+			$('#newWindowForm input[name=userAccount]').val(userAccount);
+
+      var winId = 'newWindow';
+      newWindow = window.open('', winId, 'toolbar=no,resizable=yes,scrollbars=yes,location=no,addressbar=no');
+
+      $('#newWindowForm').attr('target', winId);
+      $('#newWindowForm').submit();
+
+      newWindow.focus();
+		}
+
+		/**
+		 * 重新戴入表格資料
+		 */
+		function reloadTable() {
+			$('#qryResultTb').datagrid('reload');
+		}
+
+	</script>
+
+</head>
+
+<body onload="doQryUserList();">
+
+	<script>
+				// menu block -------------------------------------------------------
+				menu.writeMenu();
+	</script>
+
+	<form id="form" action="/F000001_SCN1.action" role="form" method="post">
+		<!-- -------------------------------------- 隱藏區 -------------------------------------- -->
+		<input type="hidden" id="msg" name="msg" value="" />
+		<input type="hidden" name="xxx" value="xxx" />
+		<input type="hidden" id="tmpUserUuid" name="tmpUserUuid" />
+
+		<!-- -------------------------------------- 查詢區 -------------------------------------- -->
+		<stripes:errors />
+
+		<div class="panel panel-default">
+			<div class="panel-heading"><b>系統功能設定</b></div>
+		  	<div class="bootstrap-panel-body">
+		  	</div>
+		</div>
+
+		<div id="qryResultDiv">
+			<table id="qryResultTb"></table>
+		</div>
+		<br />
+
+	</form>
+
+	<form id="newWindowForm" name="newWindowForm" action="F000005_SCN2.html" method="post">
+		<input type="hidden" name="xxxx" value="xxxxx" />
+		<input type=hidden name="uuid" />
+		<input type=hidden name="userAccount" />
+	</form>
+
+	<!-- -------------------------------------- 顯示區 -------------------------------------- -->
+
+	<script>
+			// footer block -------------------------------------------------------
+			menu.writeFooter();
+	</script>
+
+</body>
+

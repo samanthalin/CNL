@@ -1,0 +1,19 @@
+新增：
+images/menu_b1.png
+images/menu_b2.png
+images/menu_b3.png
+images/menu_b4.png
+css/sys_menu.css
+css/sys_menu.css.map
+css/sys_menu.scss
+js/sys_menu.js
+
+修改 sys_menu.html：
+新增 line 336 - <link rel="stylesheet" href="./css/sys_menu.css">
+新增 line 340 - <script src="./js/sys_menu.js"></script>
+修改 line 404 - 原 <a href="####" ……   改為 <a href="#####" …..
+修改 line 422 - 原 <a href="####" ……   改為 <a href=“######” …..
+
+————————————————————
+* sys_menu copy.html 是原本CNL提供的檔案
+* sys_menu2.html, style.css, style.css.map, style.scss 是新的建議的架構

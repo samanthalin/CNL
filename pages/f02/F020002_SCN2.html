@@ -1,0 +1,659 @@
+<html>
+	<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Context-Script-Type" content="text/javascript">
+<meta http-equiv="pragma" content="no-cache">
+
+
+		<title>經代列印型態維護</title>
+<!-- HTTP 1.1 -->
+<meta http-equiv="Cache-Control" content="no-store" />
+<!-- HTTP 1.0 -->
+<meta http-equiv="Pragma" content="no-cache" />
+
+<!-- Prevents caching at the Proxy Server -->
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+<!-- For RWD Design -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="x-ua-compatible" content="IE=Edge">
+
+<!-- Icon -->
+<link rel="shortcut icon" href="../../images/chinalife_favicon.png" />
+<link rel="icon" type="image/png" href="../../images/chinalife_favicon.png">
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="../../css/default.css">
+
+<!-- for form validation -->
+<link rel="stylesheet" type="text/css" href="../../css/screen.css">
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<link rel="stylesheet" type="text/css" href="../../css/ie10-viewport-bug-workaround.css">
+
+<!-- for jQuery UI -->
+<link rel="stylesheet" type="text/css" href="../../css/themes/base/jquery.ui.all.css">
+
+<!-- for Bootstrap -->
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap/bootstrap-theme.min.css">
+
+<link rel="stylesheet" type="text/css" href="../../css/jquery.smartmenus.bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap/bootstrap-ext.css">
+
+<!-- for jQuery EasyUI -->
+<link rel="stylesheet" type="text/css" href="../../css/themes/chinalife/easyui.css">
+<!-- <link rel="stylesheet" type="text/css" href="../../css/themes/mobile.css"> -->
+<link rel="stylesheet" type="text/css" href="../../css/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="../../css/easyui-ext.css">
+
+<link rel="stylesheet" type="text/css" href="../../css/select2.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/select2-bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+
+<!-- Java Script -->
+<script type="text/javascript" src="../../js/json3.min.js"></script>
+<script type="text/javascript" src="../../js/html5.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script type="text/javascript" src="../../js/html5shiv.min.js"></script>
+<script type="text/javascript" src="../../js/respond.min.js"></script>
+<![endif]-->
+
+<!-- For Jquery JavaScript Library -->
+<script type="text/javascript" src="../../js/jquery/jquery.min.js"></script>
+
+<script type="text/javascript" src="../../js/jqueryui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="../../js/jqueryui/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="../../js/jqueryui/jquery.ui.datepicker.js"></script>
+<script type="text/javascript" src="../../js/jqueryui/i18n/jquery.ui.datepicker-zh-TW.js"></script>
+
+<script type="text/javascript" src="../../js/jquery/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../js/jquery/easyui-lang-zh_TW.js"></script>
+<script type="text/javascript" src="../../js/jquery/jquery.easyui.ext.js"></script>
+<!-- <script type="text/javascript" src="../../js/jquery/jquery.easyui.mobile.js"></script> -->
+
+<script type="text/javascript" src="../../js/jquery/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../../js/jquery/additional-methods.min.js"></script>
+<script type="text/javascript" src="../../js/jquery/messages_zh_TW.min.js"></script>
+
+<script type="text/javascript" src="../../js/jquery/jquery.base64.min.js"></script>
+<script type="text/javascript" src="../../js/jquery/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="../../js/jquery/select2.min.js"></script>
+<script type="text/javascript" src="../../js/jquery/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../js/jquery/jquery.blockUI.js"></script>
+<script type="text/javascript" src="../../js/jquery/jquery.storageapi.min.js"></script>
+
+<script type="text/javascript" src="../../js/bootstrap.js"></script>
+<script type="text/javascript" src="../../js/jquery/jquery.smartmenus.min.js"></script>
+<script type="text/javascript" src="../../js/jquery/jquery.smartmenus.bootstrap.min.js"></script>
+
+<!-- for 中壽難字library -->
+<!-- <script type="text/javascript" src="../../js/hanlinks/wf.js"></script> -->
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script type="text/javascript" src="../../js/ie10-viewport-bug-workaround.js"></script>
+
+<script type="text/javascript" src="../../js/core/session.js"></script>
+<script type="text/javascript" src="../../js/utils.js"></script>
+                                              
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+<script type="text/javascript">
+	//var $j = $j || jQuery.noConflict();
+	
+	$(document).ready(function() {
+		// 共用變數區-------------------------------------------------------
+
+		// 頁面初始化區 -----------------------------------------------------
+		$('input[type=text], input[type=search], input[type=url], input[type=telephone], input[type=email], input[type=password]').attr('autocomplete', 'off');	
+		
+		// 事件註冊區 -------------------------------------------------------
+		$('.select2').on('change', function() {
+			$(this).valid();
+		});	
+
+	});	
+	
+	/**
+	 * 取代default alert javascript，這個比較漂亮
+	 */
+	function alert2(msg, title) {
+		title = title || '提示';
+
+		if (!msg) { msg = ''; }
+		
+		$.messager.alert(title, msg);
+	}
+	
+	/**
+	 * 停用 enter submit
+	 */
+	$(document).keypress(function(e) {
+		// if (e.keyCode == 13) { e.keyCode = 0; return false; }
+	});	
+
+	/**
+	 * 預設所有jQuery AJAX Request發生Error時會呼叫此function
+	 */
+	$(document).ajaxError(function(event, jqXHR, ajaxSettings, thrownError) {
+		var status = jqXHR.status;
+		
+		if (status == '403') {
+			alert('操作已逾時，系統即將登出');
+			session.signOut();
+		} else {
+			alert('系統發生錯誤，請與系統管理人員聯絡');			
+		}
+	});
+	
+	/**
+	 * 預設所有jQuery AJAX Request發送前會呼叫此function
+	 */
+	$(document).ajaxSend(function(event, jqXHR, ajaxSettings) {
+		// Timer重新計數
+		if (resetTimeOutInterval) { resetTimeOutInterval(event); }
+		
+		// 新增CSRF Header -------------------------------------------------
+		var token = $("meta[name='_csrf']").attr("content");
+		var header = $("meta[name='_csrf_header']").attr("content");					
+		
+		jqXHR.setRequestHeader(header, token);
+	});
+	
+	$.extend($.validator.messages, {
+		required: "此為必填欄位",
+	});
+
+	/**
+	 * 解決form validation在bootstrap中，當驗證錯誤時，若輸入欄位有加icon，會造成欄位破掉
+	 */
+	$.validator.setDefaults({
+	    highlight: function (element, errorClass, validClass) {
+	        if (element.type === "radio") {
+	            this.findByName(element.name).addClass(errorClass).removeClass(validClass);
+	        } else {
+	            $(element).closest('.form-group').removeClass('has-success has-feedback').addClass('has-error has-feedback');
+	        }
+	    },
+	    unhighlight: function (element, errorClass, validClass) {
+	        if (element.type === "radio") {
+	            this.findByName(element.name).removeClass(errorClass).addClass(validClass);
+	        } else {
+	            $(element).closest('.form-group').removeClass('has-error has-feedback').addClass('has-success has-feedback');
+	        }
+	    },
+	    errorElement: 'span',
+	    errorClass: 'help-block',
+	    errorPlacement: function(error, element) {
+	        if(element.parent('.input-group').length) {
+	            error.insertAfter(element.parent());
+	        } else if (element.parent('.radio-inline').length) {
+	            error.insertAfter(element.parent().parent());
+	        } else if (element.hasClass('select2')) {
+	            error.insertAfter(element.next('span'));
+	        } else {
+	            error.insertAfter(element);
+	        }
+	    }	    
+	});	
+
+</script>
+
+<style type="text/css">
+	/** 取代原本datepicker月下拉選單寬度，不調整的話中文會造成表格斷行 */
+	.ui-datepicker select.ui-datepicker-month {
+	 	font-size:12px;
+	 	width: 35%;
+	}
+	
+	/** 取代原本datepicker年下拉選單寬度，不調整的話中文會造成表格斷行  */
+	.ui-datepicker select.ui-datepicker-year {
+	 	font-size:12px;
+	 	width: 40%;
+	}
+	
+	/** select2 的下拉選單會跟著頁面大小resize */
+	@media screen {
+	    .select2 {
+	        width: 100% !important;
+	    }
+	}
+
+	/** 設定select2驗證錯誤時的樣式 */
+	.has-error .select2-selection {
+		border: 1px solid #a94442;
+		border-radius: 4px;
+	}
+	
+</style>
+
+
+
+		
+		<script type="text/javascript">
+
+			$(document).ready(function() {
+				// 共用變數區-------------------------------------------------------
+	
+				// 頁面初始化區 -----------------------------------------------------
+				
+				$('input[placeholder]').placeholder();
+				$('#kaptchaValue').val('');
+				
+				$(':input:visible:eq(0)').focus().select();
+				
+				// 事件註冊區 -------------------------------------------------------
+				$("#form").validate({
+					rules: {
+						logInAccount: {
+					    	required: true
+						},
+						logInPw: {
+							required: true
+						},
+						kaptchaValue: {
+							required: true
+						}
+					},
+					messages: {
+						
+					}
+				});
+				
+				$('#regenImgBt').click(function() {																// 重新產生圖形驗證碼
+					$('#kaptchaImg').attr('src', 'kaptcha.jpg');
+				});
+				
+				$('#doLogInBt').click(function() {
+					if (!$("#form").valid()) { return false; }
+					
+				});
+			});
+
+		</script>
+		
+		<style type="text/css">
+			body {
+			  	padding-top: 40px;
+			  	padding-bottom: 40px;
+			 	background-color: #ffffff;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="../../css/decorators.css">
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// 共用變數區-------------------------------------------------------
+				var userAccount = 'user001';
+	
+				// 頁面初始化區 -----------------------------------------------------
+				$.cookie("isSessionAlive", 'Y');
+				if (userAccount) { setTimeOutInterval(); }	
+				
+				$('a[menuType="02"]').attr('target', '_blank');														// 02:項目(另開視窗)
+
+				$('input:not(:disabled):not([readonly]):visible:eq(0)').focus().select();
+				$('input[placeholder]').placeholder();
+				
+				// 事件註冊區 -------------------------------------------------------
+				
+				$('#logoutAnchor').click(function() {
+					if (!confirm('確認登出?')) { return; }
+					$("#caslogoutForm").submit();
+				});
+			});
+		</script>
+		
+		<style type="text/css">
+			body {
+				padding-top: 46px;
+			}
+		</style>		
+		
+	</head>
+	
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12">
+					<div class="navbar navbar-default navbar-fixed-top" role="navigation" />
+					<div class="navbar-header">
+			      		<a class="pull-left" href="http://www.chinalife.com.tw/wps/portal/chinalife">
+			      			<img alt="ChinaLife" src="../../images/ChinaLife-Logo.png" />
+			      		</a>
+					</div>					
+				</div>
+			</div>
+
+			
+			<div class="row centerContainer">
+				<div class="col-md-2 leftContainer hidden-sm"></div>
+			
+				<div class="col-md-8 contentContainer">
+					<div id="mainBodyDiv">
+<title>經代列印型態維護</title>
+
+<head>
+	<!-- for 中壽難字library -->
+	<script type="text/javascript" src="../../js/hanlinks/wf.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// 共用變數區-------------------------------------------------------
+			var uuid = $('input[name=uuid]').val();
+			
+			// 頁面初始化區 -----------------------------------------------------
+			$("#form").validate({
+				rules: {
+					userAccount: {
+						required: true,
+						minlength: 3,
+						alphanumeric: true
+					},
+					userCode: {
+						required: true,
+						digits: true,
+						minlength: 8,
+						maxlength: 12,
+					},
+					userNm: {
+						required: true,
+						minlength: 2
+					},
+					userId: {
+						alphanumeric: true
+					},
+					mobileNo: {
+						minlength: 10,
+						digits: true
+					},
+					email: {
+						required: true,
+						email: true
+					},
+					forceChgPwd: {
+						required: true
+					},
+					deptNoSel: {
+						required: true
+					},
+					accountSts: {
+						required: true
+					},
+					internetAcc: {
+						required: true
+					}
+				},
+				messages: {
+					userAccount: {
+						alphanumeric: '僅准許輸入英數字或加底線'
+					},
+					userId: {
+						alphanumeric: '僅准許輸入英數字或加底線'
+					}					
+				}
+			});	
+			
+			$('#deptNoSel').select2({
+				theme: "bootstrap"
+			});		
+			
+			if (isNotBlank(uuid)) {
+				$('#userAccount').attr('readonly', 'readonly');
+				
+				$('#forceChgPwd').removeAttr('disabled');
+				
+				doLoadRbacUser(uuid, $('#userAccount').val());
+			}
+			
+			if (isBlank(uuid)) {
+				$('#forceChgPwd').val('Y');
+			}
+			
+			// 事件註冊區 ------------------------------------------------------
+			$('input[type=text]').blur(function() {
+				$(this).val(trim($(this).val()));
+			});
+
+			$('#userAccount').blur(function() {
+				$(this).val(toUpperCase($(this).val()));
+			});
+			
+			$('#doMergeBt').click(function() {
+				if (!$("#form").valid()) { return; }
+				if (!confirm('確認送出?')) { return; }
+				
+				$.ajax({
+					url: './F010001_SCN2.action?doMergeRbacUser',
+					data: {
+						uuid: $('#uuid').val(),
+						userAccount: toUpperCase($('#userAccount').val()),
+						userNm: $('#userNm').val(),
+						userId: $('#userId').val(),
+						agentNo: $('#agentNo').val(),
+						mobileNo: $('#mobileNo').val(),
+						email: $('#email').val(),
+						forceChgPwd: $('#forceChgPwd').val(),
+						deptNo: $('#deptNoSel').val(),
+						accountSts: $('#accountSts').val(),
+						userCode: $('#userCode').val(),
+						forceChkProfile: $('#forceChkProfile').val(),
+						internetAcc: $('#internetAcc').val()
+					},
+					type: 'POST',
+					async: false,
+					dataType: 'json',
+					success: function(json) {
+						if (isNotBlank(json.msg)) { alert(json.msg); }
+						
+						if (json.action == 'Y') {
+							alert('資料已送出');
+							
+							if (opener.reloadTable) { opener.reloadTable(); }
+							if (window.opener != null) {
+								window.opener = null;
+								window.close();
+							}
+						}
+					}				
+				});
+			});
+			
+			$('#userAccount').blur(function() {
+				if (isNotBlank(uuid)) {
+					return;
+				}
+
+				if (isBlank($('#userAccount').val())) { return; }
+				
+				$.ajax({
+					url: './F010001_SCN2.action?doCheckAccountExist',									// 檢查帳號是否存在
+					data: {
+						userAccount: toUpperCase($('#userAccount').val())
+					},
+					type: 'POST',
+					async: false,
+					dataType: 'json',
+					success: function(json) {
+						if (isNotBlank(json.msg)) { alert(json.msg); }
+
+						if (json.content > 0) {
+							alert('帳號已存在');
+							$('#userAccount').val('');
+						}
+					}
+				});
+			});				
+			
+		});
+		
+		/**
+		 * 載入使用者基本資料
+		 */
+		function doLoadRbacUser(uuid, userAccount) {
+			$.ajax({
+				url: './F010001_SCN2.action?doQryRbacUser',
+				data: {
+					uuid: uuid,
+					userAccount: userAccount
+				},
+				type: 'POST',
+				async: false,
+				dataType: 'json',
+				success: function(json) {
+					if (isNotBlank(json.msg)) { alert(json.msg); }
+					
+					if (json.action == 'Y') {
+						var content = json.content;
+						
+						$('#userCode').val(content.USER_CODE);
+						$('#userNm').val(content.USER_NM);
+						$('#userId').val(content.USER_ID);
+						$('#agentNo').val(content.AGENT_NO);
+						$('#mobileNo').val(content.MOBILE_NO);
+						$('#email').val(content.EMAIL);
+						$('#deptNoSel').val(content.DEPT_NO).trigger('change.select2');
+						$('#accountSts').val(content.ACCOUNT_STS);
+						$('#forceChgPwd').val(content.FORCE_CHG_PWD);
+						$('#internetAcc').val(content.INTERNET_ACC);
+					}
+				}
+			});				
+		}
+	</script>
+	
+	<style type="text/css">
+		/** for 載入中壽難字 */
+		@font-face {
+			font-family: Alertie;
+			src: url(../../js/hanlinks/eudc.ttf) format("truetype");
+		}
+	
+		/** for 載入中壽難字 */
+		@font-face {
+			font-family: Hanlinks_IME;
+			src: url(../../js/hanlinks/eudc.ttf) format("truetype");
+		}
+	</style>
+</head>
+
+
+<body>
+	<form id="form" action="F010001_SCN1.html" role="form" method="post">
+		<!-- -------------------------------------- 隱藏區 -------------------------------------- -->
+		<input type="hidden" id="msg" name="msg" value="${actionBean.msg}" />
+		<input type="hidden" name="xxx" value="xxx" />							
+		
+		
+		<!-- -------------------------------------- 查詢區 -------------------------------------- -->
+		
+		
+		<div class="panel panel-default">
+			<div class="panel-heading"><b>經代列印型態維護</b></div>
+		  	<div class="bootstrap-panel-body">
+				<div class="row">
+					<div class="col-md-6 form-group">
+						<label for="system">系統別</label>
+						<select id="system" name="system" class="select2 form-control">
+							<option value="">--請選擇--</option>
+							<option value="AFS">AFS</option>
+							<option value="XXXX">XXXXXXXXXX</option>
+						</select>
+					</div>
+					
+					<div class="col-md-6 form-group">
+						<label for="bank">總行</label> 
+						<input type="text" id="userId" name="bank" maxlength="30" class="form-control" />
+						<!--<input type=text id="userCode" name="userCode" maxlength="12" class="form-control" placeholder="請輸入8~12位數字" />-->
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-6 form-group">
+						<label for="flag">型態</label>
+						<select id="flag" name="flag" class="select2 form-control">
+							<option value="">--請選擇--</option>
+							<option value="XXXX">XXXXXXXXXX</option>
+							<option value="XXXX">XXXXXXXXXX</option>
+						</select>					
+					</div>
+									
+					<div class="col-md-6 form-group">
+						<label for="PDF">PDF</label>
+						<select id="PDF" name="PDF" class="select2 form-control">
+							<option value="">--請選擇--</option>
+							<option value="N">N</option>
+							<option value="Y">Y</option>
+						</select>
+					</div>				
+				</div>
+				
+				<div class="row">
+					<div class="col-md-6 form-group">
+						<label for="paper">紙本</label> 						
+						<select id="paper" name="paper" class="select2 form-control">
+							<option value="">--請選擇--</option>
+							<option value="Y">Y</option>
+							<option value="N">N</option>
+						</select>				
+					</div>				
+							
+					<div class="col-md-6 form-group">
+						<label for="zip">總行全檔壓縮</label> 						
+						<select id="zip" name="zip" class="select2 form-control">
+							<option value="">--請選擇--</option>
+							<option value="Y">Y</option>
+							<option value="N">N</option>
+						</select>
+					</div>			
+				</div>
+				
+
+				
+				
+			
+
+				<div class="row">
+					<div class="col-md-4 form-group">
+						<input id="doMergeBt" type="button" class="btn btn-danger" value="完成">
+					</div>
+				</div>		  	
+		  	</div>
+		</div>		
+		
+	</form>
+	
+	<!-- -------------------------------------- 顯示區 -------------------------------------- -->
+	
+</body>
+						
+						
+						
+						
+						
+					</div>
+				</div>
+				
+				<div class="col-md-2 rightContainer hidden-sm"></div>
+			</div>
+			
+			
+			<footer>
+				<nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+	        		<div class="navbar-text navbar-right" id="copyrightDiv">
+	          			<p>Copyright © 2017 ChinaLife Inc. All rights reserved</p>
+	        		</div>				
+				</nav>
+			</footer>
+		</div>
+	</body>
+</html>
+
+
+
+

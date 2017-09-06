@@ -1,0 +1,13 @@
+/**
+ * History
+ */
+ 
+/** 設定body的邊界 */
+body {
+	margin: 4px 4px 4px 4px;
+}
+
+/** 將原件做隱藏，只是在畫面上不顯示，並不會真的做刪除 */
+.hide {
+	display: none;
+}

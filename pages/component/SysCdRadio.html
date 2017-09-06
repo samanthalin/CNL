@@ -1,0 +1,71 @@
+<%@page language="java" pageEncoding="utf-8" contentType="text/html;charset=utf-8" %>
+<%@include file="/commons/Taglibs.jsp" %>
+<%@include file="/commons/Variables.jsp" %>
+
+<%-- 
+	使用說明：SYS_CD Radio選單
+	注意: 
+	項次		參數							是否必填			說明
+	===========================================================================
+	1		selId						O				Radio選單 id
+	2		selName						M				Radio選單 name
+	3		ctId						O				CODE的種類 REF SFA.SFA_SYS_CT.ID
+	4		cdId						O				明細ID
+	5		cdNm						O				明細名稱
+	6		odrNum						O				排序號碼
+	7		remark						O				明細註解/說明
+	8       suspend  					O				是否停用Y/N
+	9  		flag01						O				其它用途註記 01
+	10		flag02						O				其它用途註記 02
+	11		flag03						O				其它用途註記 03
+	12		flag04						O				其它用途註記 04
+	13		flag05						O				其它用途註記 05
+	14		flag06						O				其它用途註記 06
+	15		flag07						O				其它用途註記 07
+	16		flag08						O				其它用途註記 08
+	17		flag09						O				其它用途註記 09
+	18		flag10						O				其它用途註記 10
+	19		readOnly					O				是否唯讀 Y : 唯讀，非Y可選擇, Default = N
+	20		value						O				被選中的cdId
+	21		isRequired					O				是否為必填, Default = N
+	22		className					O				css class name
+	23		orderBy						O				排序欄位
+--%>
+
+<style type="text/css">
+
+</style>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		// 共用變數區-------------------------------------------------------
+		var readOnly = '${fn:escapeXml(param.readOnly)}';
+		if (isBlank(readOnly)) { readOnly = 'N'; }
+
+		var isRequired = '${fn:escapeXml(param.isRequired)}';
+		if (isBlank(isRequired)) { isRequired = 'N'; }
+
+		// 頁面初始化區 -----------------------------------------------------
+		if ('N' == readOnly) {
+		}
+
+		if ('Y' == isRequired) {
+		}
+		
+		// 事件註冊區 ------------------------------------------------------
+		
+		// ----------------------------------------------------------------
+	});
+
+</script>
+
+<style type="text/css">
+
+</style>
+
+<stripes:useActionBean var="bean" event="doQuerySysCdList" binding="/SysCdRadio.action" alwaysExecuteEvent="true"/>
+<c:forEach items="${bean.sysCds}" var="row" varStatus="rowStatus">
+	<label class="${param.className}">
+		<stripes:radio id="${param.selId}" name="${param.selName}" value="${row.cdId}" />${row.cdNm}
+	</label>
+</c:forEach>

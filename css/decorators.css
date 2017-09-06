@@ -1,0 +1,39 @@
+body {
+	padding-top: 47px;
+	padding-bottom: 58px;
+}
+
+body .centerContainer {
+	/*margin: 4px 4px 4px 4px;*/
+	background-color: #ecf9ff;
+	background-image: url(../images/bg_content.jpg);
+	background-position:center top;
+	background-repeat: no-repeat;
+}	
+
+body .leftContainer {
+	margin: 0px 0px 0px 0px;
+}
+
+body .contentContainer {
+	min-height: 840px;
+	background-color: white;
+	background-image: none;
+}
+
+body .rightContainer {
+	margin: 0px 0px 0px 0px;
+}		
+
+#copyrightDiv {
+	margin-right: 10px;
+}
+
+#navMenuDiv a:link {
+	text-decoration: none;
+}
+
+#mainBodyDiv {
+	padding-top: 4px;
+}
+

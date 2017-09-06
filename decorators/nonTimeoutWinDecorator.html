@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<%@page language="java" pageEncoding="utf-8" contentType="text/html;charset=utf-8" %>
+
+<%@include file="/commons/Taglibs.jsp" %>
+<%@include file="/commons/Variables.jsp" %>
+
+
+<html lang="zh-Hant-TW">
+	<head>
+		<title>RBACA-<sitemesh:write property='title' /></title>
+
+		<jsp:include page="/commons/Meta.jsp" />
+		
+		<link rel="stylesheet" type="text/css" href="${contextPath}/css/decorators.css">
+		
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// 共用變數區-------------------------------------------------------
+				var userAccount = '${optUserProfile.userAccount}';
+				
+				// 頁面初始化區 -----------------------------------------------------
+				// $.cookie("isSessionAlive", 'Y');
+				// setTimeOutInterval();	
+				resetTimeOutInterval = null;
+				
+				$('input:not(:disabled):not([readonly]):visible:eq(0)').focus().select();
+				$('input[placeholder]').placeholder();
+				
+				// 事件註冊區 -------------------------------------------------------
+				
+			});
+		</script>
+		
+		<style type="text/css">
+			body {
+				padding-top: 46px;
+			}
+		</style>		
+		
+		<sitemesh:write property="head" />
+	</head>
+	
+	
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12">
+					<div class="navbar navbar-default navbar-fixed-top" role="navigation" />
+					<div class="navbar-header">
+			      		<a class="pull-left" href="http://www.chinalife.com.tw/wps/portal/chinalife">
+			      			<img alt="ChinaLife" src="${contextPath}/images/ChinaLife-Logo.png" />
+			      		</a>
+					</div>					
+				</div>
+			</div>
+
+			
+			<div class="row centerContainer">
+				<div class="col-md-2 leftContainer hidden-sm"></div>
+			
+				<div class="col-md-8 contentContainer">
+					<div id="mainBodyDiv">
+						<sitemesh:write property="body" />
+					</div>
+				</div>
+				
+				<div class="col-md-2 rightContainer hidden-sm"></div>
+			</div>
+			
+			
+			<footer>
+				<nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+	        		<div class="navbar-text navbar-right" id="copyrightDiv">
+	          			<p>Copyright © 2015 ChinaLife Inc. All rights reserved</p>
+	        		</div>				
+				</nav>
+			</footer>
+		</div>
+	</body>
+</html>

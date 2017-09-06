@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Context-Script-Type" content="text/javascript">
+	<meta http-equiv="pragma" content="no-cache">
+
+
+			<title>系統功能選單</title>
+	<!-- HTTP 1.1 -->
+	<meta http-equiv="Cache-Control" content="no-store" />
+	<!-- HTTP 1.0 -->
+	<meta http-equiv="Pragma" content="no-cache" />
+
+	<!-- Prevent iframe include from the other site -->
+	<meta http-equiv="X-Frame-Options" content="sameorigin">
+
+	<!-- Prevents caching at the Proxy Server -->
+	<meta http-equiv="Expires" content="0" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+	<!-- For RWD Design -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="x-ua-compatible" content="IE=Edge">
+
+	<!-- Icon -->
+	<link rel="shortcut icon" href="./images/chinalife_favicon.png" />
+	<link rel="icon" type="image/png" href="./images/chinalife_favicon.png">
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="./css/default.css">
+
+	<!-- for form validation -->
+	<link rel="stylesheet" type="text/css" href="./css/screen.css">
+
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<link rel="stylesheet" type="text/css" href="./css/ie10-viewport-bug-workaround.css">
+
+	<!-- for jQuery UI -->
+	<link rel="stylesheet" type="text/css" href="./css/themes/base/jquery.ui.all.css">
+
+	<!-- for Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap/bootstrap-theme.min.css">
+
+	<link rel="stylesheet" type="text/css" href="./css/jquery.smartmenus.bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap/bootstrap-ext.css">
+
+	<!-- for jQuery EasyUI -->
+	<link rel="stylesheet" type="text/css" href="./css/themes/chinalife/easyui.css">
+	<!-- <link rel="stylesheet" type="text/css" href="./css/themes/mobile.css"> -->
+	<link rel="stylesheet" type="text/css" href="./css/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="./css/easyui-ext.css">
+
+	<link rel="stylesheet" type="text/css" href="./css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/select2-bootstrap.min.css">
+
+	<link rel="stylesheet" type="text/css" href="./css/common.css">
+
+	<!-- css for menu -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+
+	<!-- Java Script -->
+	<script type="text/javascript" src="./js/json3.min.js"></script>
+	<script type="text/javascript" src="./js/html5.js"></script>
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="./js/html5shiv.min.js"></script>
+	<script type="text/javascript" src="./js/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- For Jquery JavaScript Library -->
+	<script type="text/javascript" src="./js/jquery/jquery.min.js"></script>
+
+	<script type="text/javascript" src="./js/jqueryui/jquery.ui.core.js"></script>
+	<script type="text/javascript" src="./js/jqueryui/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="./js/jqueryui/jquery.ui.datepicker.js"></script>
+	<script type="text/javascript" src="./js/jqueryui/i18n/jquery.ui.datepicker-zh-TW.js"></script>
+
+	<script type="text/javascript" src="./js/jquery/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="./js/jquery/easyui-lang-zh_TW.js"></script>
+	<script type="text/javascript" src="./js/jquery/jquery.easyui.ext.js"></script>
+	<!-- <script type="text/javascript" src="./js/jquery/jquery.easyui.mobile.js"></script> -->
+
+	<script type="text/javascript" src="./js/jquery/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="./js/jquery/additional-methods.min.js"></script>
+	<script type="text/javascript" src="./js/jquery/messages_zh_TW.min.js"></script>
+
+	<script type="text/javascript" src="./js/jquery/jquery.base64.min.js"></script>
+	<script type="text/javascript" src="./js/jquery/jquery.placeholder.min.js"></script>
+	<script type="text/javascript" src="./js/jquery/select2.min.js"></script>
+	<script type="text/javascript" src="./js/jquery/jquery.cookie.js"></script>
+	<script type="text/javascript" src="./js/jquery/jquery.blockUI.js"></script>
+	<script type="text/javascript" src="./js/jquery/jquery.storageapi.min.js"></script>
+
+	<script type="text/javascript" src="./js/bootstrap.js"></script>
+	<script type="text/javascript" src="./js/jquery/jquery.smartmenus.min.js"></script>
+	<script type="text/javascript" src="./js/jquery/jquery.smartmenus.bootstrap.min.js"></script>
+
+	<!-- for 中壽難字library -->
+	<!-- <script type="text/javascript" src="./js/hanlinks/wf.js"></script> -->
+
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script type="text/javascript" src="./js/ie10-viewport-bug-workaround.js"></script>
+
+	<script type="text/javascript" src="./js/core/session.js"></script>
+	<script type="text/javascript" src="./js/utils.js"></script>
+	                                              
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+	<script type="text/javascript">
+		//var $j = $j || jQuery.noConflict();
+		
+		$(document).ready(function() {
+			// 共用變數區-------------------------------------------------------
+
+			// 頁面初始化區 -----------------------------------------------------
+			$('input[type=text], input[type=search], input[type=url], input[type=telephone], input[type=email], input[type=password]').attr('autocomplete', 'off');	
+			
+			// 事件註冊區 -------------------------------------------------------
+			$('.select2').on('change', function() {
+				$(this).valid();
+			});	
+
+		});	
+		
+		/**
+		 * 取代default alert javascript，這個比較漂亮
+		 */
+		function alert2(msg, title) {
+			title = title || '提示';
+
+			if (!msg) { msg = ''; }
+			
+			$.messager.alert(title, msg);
+		}
+		
+		/**
+		 * 停用 enter submit
+		 */
+		$(document).keypress(function(e) {
+			// if (e.keyCode == 13) { e.keyCode = 0; return false; }
+		});	
+
+		/**
+		 * 預設所有jQuery AJAX Request發生Error時會呼叫此function
+		 */
+		$(document).ajaxError(function(event, jqXHR, ajaxSettings, thrownError) {
+			var status = jqXHR.status;
+			
+			if (status == '403') {
+				alert('操作已逾時，系統即將登出');
+				session.signOut();
+			} else {
+				alert('系統發生錯誤，請與系統管理人員聯絡');			
+			}
+		});
+		
+		/**
+		 * 預設所有jQuery AJAX Request發送前會呼叫此function
+		 */
+		$(document).ajaxSend(function(event, jqXHR, ajaxSettings) {
+			// Timer重新計數
+			if (resetTimeOutInterval) { resetTimeOutInterval(event); }
+			
+			// 新增CSRF Header -------------------------------------------------
+			var token = $("meta[name='_csrf']").attr("content");
+			var header = $("meta[name='_csrf_header']").attr("content");					
+			
+			jqXHR.setRequestHeader(header, token);
+		});
+		
+		$.extend($.validator.messages, {
+			required: "此為必填欄位",
+		});
+
+		/**
+		 * 解決form validation在bootstrap中，當驗證錯誤時，若輸入欄位有加icon，會造成欄位破掉
+		 */
+		$.validator.setDefaults({
+		    highlight: function (element, errorClass, validClass) {
+		        if (element.type === "radio") {
+		            this.findByName(element.name).addClass(errorClass).removeClass(validClass);
+		        } else {
+		            $(element).closest('.form-group').removeClass('has-success has-feedback').addClass('has-error has-feedback');
+		        }
+		    },
+		    unhighlight: function (element, errorClass, validClass) {
+		        if (element.type === "radio") {
+		            this.findByName(element.name).removeClass(errorClass).addClass(validClass);
+		        } else {
+		            $(element).closest('.form-group').removeClass('has-error has-feedback').addClass('has-success has-feedback');
+		        }
+		    },
+		    errorElement: 'span',
+		    errorClass: 'help-block',
+		    errorPlacement: function(error, element) {
+		        if(element.parent('.input-group').length) {
+		            error.insertAfter(element.parent());
+		        } else if (element.parent('.radio-inline').length) {
+		            error.insertAfter(element.parent().parent());
+		        } else if (element.hasClass('select2')) {
+		            error.insertAfter(element.next('span'));
+		        } else {
+		            error.insertAfter(element);
+		        }
+		    }	    
+		});	
+
+	</script>
+
+	<style type="text/css">
+		/** 取代原本datepicker月下拉選單寬度，不調整的話中文會造成表格斷行 */
+		.ui-datepicker select.ui-datepicker-month {
+		 	font-size:12px;
+		 	width: 35%;
+		}
+		
+		/** 取代原本datepicker年下拉選單寬度，不調整的話中文會造成表格斷行  */
+		.ui-datepicker select.ui-datepicker-year {
+		 	font-size:12px;
+		 	width: 40%;
+		}
+		
+		/** select2 的下拉選單會跟著頁面大小resize */
+		@media screen {
+		    .select2 {
+		        width: 100% !important;
+		    }
+		}
+
+		/** 設定select2驗證錯誤時的樣式 */
+		.has-error .select2-selection {
+			border: 1px solid #a94442;
+			border-radius: 4px;
+		}
+		
+		/** for 載入中壽難字 */
+		/*
+		@font-face {
+			font-family: Alertie;
+			src: url(./js/hanlinks/eudc.ttf) format("truetype");
+		}
+		*/
+
+		/** for 載入中壽難字 */
+		/*
+		@font-face {
+			font-family: Hanlinks_IME;
+			src: url(./js/hanlinks/eudc.ttf) format("truetype");
+		}
+		*/	
+	</style>
+
+	<script type="text/javascript">
+
+		$(document).ready(function() {
+			// 共用變數區-------------------------------------------------------
+
+			// 頁面初始化區 -----------------------------------------------------
+			
+			$('input[placeholder]').placeholder();
+			$('#kaptchaValue').val('');
+			
+			$(':input:visible:eq(0)').focus().select();
+			
+			// 事件註冊區 -------------------------------------------------------
+			$("#form").validate({
+				rules: {
+					logInAccount: {
+				    	required: true
+					},
+					logInPw: {
+						required: true
+					},
+					kaptchaValue: {
+						required: true
+					}
+				},
+				messages: {
+					
+				}
+			});
+			
+			$('#regenImgBt').click(function() {																// 重新產生圖形驗證碼
+				$('#kaptchaImg').attr('src', 'kaptcha.jpg');
+			});
+			
+			$('#doLogInBt').click(function() {
+				if (!$("#form").valid()) { return false; }
+				
+			});
+		});
+
+	</script>
+
+	<script>
+		$(document).ready(function() {
+			$(".cat-button").click(function(){
+		        $(".cat").toggle();
+	    	});
+		});
+	</script>
+		
+	<!-- <style type="text/css">
+		body {
+		  	padding-top: 40px;
+		  	padding-bottom: 40px;
+		 	background-color: #ffffff;
+		}
+	</style> -->
+	<link rel="stylesheet" type="text/css" href="${contextPath}/css/decorators.css">
+		
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// 共用變數區-------------------------------------------------------
+			var userAccount = '${optUserProfile.userAccount}';
+
+			// 頁面初始化區 -----------------------------------------------------
+			$.cookie("isSessionAlive", 'Y');
+			if (userAccount) { setTimeOutInterval(); }	
+			
+			$('a[menuType="02"]').attr('target', '_blank');														// 02:項目(另開視窗)
+
+			$('input:not(:disabled):not([readonly]):visible:eq(0)').focus().select();
+			$('input[placeholder]').placeholder();
+			
+			// 事件註冊區 -------------------------------------------------------
+			
+			$('#logoutAnchor').click(function() {
+				if (!confirm('確認登出?')) { return; }
+				$("#caslogoutForm").submit();
+			});
+		});
+	</script>
+	
+	<style type="text/css">
+		body {
+
+		}	
+		
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top" id="navMenuDiv">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">
+	      	<img src="./images/ChinaLife-Logo.png" alt="Brand">
+	      </a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav"></ul>
+
+	      <ul class="nav navbar-nav navbar-right" data-smartmenus-id="15015844365803408">
+	        <li>
+	        	<a href="####" id="logoutAnchor"><span class="glyphicon glyphicon-user"></span>登出</a>
+	        </li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+	<form id="form" action="index_main.html">
+		<a href="index_main01.html" class="menu-btn" target="_blank">
+			<img src="./images/menu_b1.png" alt="">
+			<div class="title">銀行管理系統</div>
+		</a>
+		<a href="index_main02.html" class="menu-btn" target="_blank">
+			<img src="./images/menu_b2.png" alt="">
+			<div class="title">經代管理系統</div>
+		</a>
+		<a href="#" class="menu-btn">
+			<img src="./images/menu_b3.png" alt="">
+			<div class="title">新契約列印作業</div>
+		</a>
+		<a href="#" class="menu-btn">
+			<img src="./images/menu_b4.png" alt="">
+			<div class="title">新契約維護管理系統</div>
+		</a>
+	</form>
+	<footer role="navigation" id="copyrightDiv">
+		<p>Copyright © 2017 ChinaLife Inc. All rights reserved</p>
+	</footer>
+	<form id="caslogoutForm" action="${contextPath}/logout?${_csrf.parameterName}=${_csrf.token}" method="post"/>
+</body>
+</html>
+
+
+
+
+
+

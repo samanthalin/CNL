@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<%@page language="java" pageEncoding="utf-8" contentType="text/html;charset=utf-8" %>
+
+<%@include file="/commons/Taglibs.jsp" %>
+<%@include file="/commons/Variables.jsp" %>
+
+
+<html lang="zh-Hant-TW">
+	<head>
+		<title>RBACA-<sitemesh:write property='title' /></title>
+
+		<jsp:include page="/commons/Meta.jsp" />
+		
+		<link rel="stylesheet" type="text/css" href="${contextPath}/css/decorators.css">
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// 共用變數區-------------------------------------------------------
+				var userAccount = '${optUserProfile.userAccount}';
+	
+				// 頁面初始化區 -----------------------------------------------------
+				$.cookie("isSessionAlive", 'Y');
+				if (userAccount) { setTimeOutInterval(); }	
+				
+				$('a[menuType="02"]').attr('target', '_blank');														// 02:項目(另開視窗)
+
+				$('input:not(:disabled):not([readonly]):visible:eq(0)').focus().select();
+				$('input[placeholder]').placeholder();
+				
+				// 事件註冊區 -------------------------------------------------------
+				
+				$('#logoutAnchor').click(function() {
+					if (!confirm('確認登出?')) { return; }
+					$("#caslogoutForm").submit();
+				});
+			});
+		</script>
+		
+		<style type="text/css">
+			body {
+
+			}	
+		</style>
+		
+		<sitemesh:write property="head" />
+	</head>
+	
+	<body>
+		<div class="container-fluid">
+
+			<!--  -->
+			<div class="row" id="navMenuDiv">
+				<div class="col-12">
+					<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+				      		<a class="pull-left" href="http://www.chinalife.com.tw/wps/portal/chinalife">
+				      			<img alt="ChinaLife" src="${contextPath}/images/ChinaLife-Logo.png" />
+				      		</a>
+						</div>
+						<div class="navbar-collapse collapse">
+						  	<ul class="nav navbar-nav">
+						  		<c:forEach var="item" items="${optUserMenuTop}">
+						  			<li>
+						  				<%-- 第一層 --%>
+						  				<c:if test="${empty item.uri}">
+						  					<a href="####" menuType="${item.menuType}">${item.menuName} <span class="caret"></span></a>
+						  				</c:if>
+						  				<c:if test="${!empty item.uri}">
+						  					<a href="${item.uri}" menuType="${item.menuType}">${item.menuName} <span class="caret"></span></a>
+						  				</c:if>
+						  				
+						  				<%-- 第二層 --%>
+						  				<c:if test="${fn:length(item.subMenus) > 0}">
+						  					<ul class="dropdown-menu">
+						  						<c:forEach var="item" items="${item.subMenus}">
+									  				<c:if test="${empty item.uri}">
+									  					<li>
+									  						<a href="####" menuType="${item.menuType}" class="pure-menu-link">${item.menuName}
+									  					<c:if test="${fn:length(item.subMenus) > 0}">
+									  						<span class="caret">
+									  					</c:if>
+									  						</a>
+
+														<%-- 第三層 --%>
+										  				<c:if test="${fn:length(item.subMenus) > 0}">
+										  					<ul class="dropdown-menu">
+										  					<c:forEach var="item" items="${item.subMenus}">
+											  					<c:if test="${empty item.uri}">
+											  						<li><a href="####" menuType="${item.menuType}" class="pure-menu-link">${item.menuName}</a></li>
+											  					</c:if>
+											  					<c:if test="${!empty item.uri}">
+											  						<li><a href="${contextPath}${item.uri}" menuType="${item.menuType}" class="pure-menu-link">${item.menuName}</a></li>
+											  					</c:if>
+										  					</c:forEach>
+										  					</ul>
+										  				</c:if>
+									  					</li>
+									  				</c:if>
+									  				<c:if test="${!empty item.uri}">
+									  					<li>
+									  						<a href="${contextPath}${item.uri}" menuType="${item.menuType}" class="pure-menu-link">${item.menuName}
+									  					<c:if test="${fn:length(item.subMenus) > 0}">
+									  						<span class="caret">
+									  					</c:if>									  						
+									  						</a>
+
+														<%-- 第三層 --%>
+										  				<c:if test="${fn:length(item.subMenus) > 0}">
+										  					<ul class="dropdown-menu">
+										  					<c:forEach var="item" items="${item.subMenus}">
+											  					<c:if test="${empty item.uri}">
+											  						<li><a href="####" menuType="${item.menuType}" class="pure-menu-link">${item.menuName}</a></li>
+											  					</c:if>
+											  					<c:if test="${!empty item.uri}">
+											  						<li><a href="${contextPath}${item.uri}" menuType="${item.menuType}" class="pure-menu-link">${item.menuName}</a></li>
+											  					</c:if>
+											  				</c:forEach>	
+										  					</ul>
+										  				</c:if>
+									  					</li>
+									  				</c:if>	
+						  						</c:forEach>
+						  					</ul>
+						  				</c:if>
+						  			</li>
+						  		</c:forEach>
+							</ul>
+						
+							<ul class="nav navbar-nav navbar-right">
+				        		<li><a href="####" id="logoutAnchor"><span class="glyphicon glyphicon-user"></span>登出(${optUserProfile.userNm})</a></li>							
+							</ul>
+						</div>
+					</div>
+				</div>					
+			</div>
+
+			
+			<div class="row centerContainer">
+				<div class="col-md-2 leftContainer hidden-sm"></div>
+			
+				<div class="col-md-8 contentContainer">
+					<div id="mainBodyDiv">
+						<sitemesh:write property="body" />
+					</div>
+				</div>
+				
+				<div class="col-md-2 rightContainer hidden-sm"></div>
+			</div>
+			
+			
+			<footer>
+				<nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+	        		<div class="navbar-text navbar-right" id="copyrightDiv">
+	          			<p>Copyright © 2015 ChinaLife Inc. All rights reserved</p>
+	        		</div>				
+				</nav>
+			</footer>
+		</div>
+		
+		
+		<%-- for CAS SSO 登出用 --%>
+		<form id="caslogoutForm" action="${contextPath}/logout?${_csrf.parameterName}=${_csrf.token}" method="post" />
+		
+	</body>
+</html>

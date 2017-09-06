@@ -1,0 +1,22 @@
+.datagrid-cell,
+.datagrid-cell-group,
+.datagrid-header-rownumber,
+.datagrid-cell-rownumber {
+  margin: 0;
+  padding: 0 4px;
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
+  height: 18px;
+  line-height: 18px;
+  font-size: 14px;
+}
+
+.datagrid-header .datagrid-cell span {
+  font-size: 14px;
+}
+
+.datagrid-row-selected {
+  background: #ffe48d;
+  color: #000000;
+}
