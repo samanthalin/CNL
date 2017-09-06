@@ -56,6 +56,7 @@
 <link rel="stylesheet" type="text/css" href="./css/select2-bootstrap.min.css">
 
 <link rel="stylesheet" type="text/css" href="./css/common.css">
+<link rel="stylesheet" href="./css/index_main.css">
 
 
 <!-- Java Script -->
@@ -297,13 +298,13 @@
 
 		</script>
 		
-		<style type="text/css">
+		<!-- <style type="text/css">
 			body {
 			  	padding-top: 40px;
 			  	padding-bottom: 40px;
 			 	background-color: #ffffff;
 			}
-		</style>
+		</style> -->
 		<link rel="stylesheet" type="text/css" href="${contextPath}/css/decorators.css">
 		
 		<script type="text/javascript">
@@ -379,7 +380,21 @@
 		
 		
 		<form id="caslogoutForm" action="${contextPath}/logout?${_csrf.parameterName}=${_csrf.token}" method="post" />
-
+		<script>
+			$(document).ready(function(){
+				$('.img-responsive').remove();
+				$('body').append('<div class="index-background"></div>');
+				var hh = $('.navbar-fixed-bottom').height();
+				var nh = $('.navbar-fixed-top').height();
+				var h = $(window).height();
+				var x = h - hh - nh
+				//console.log(nh)
+				$('.index-background').height(x);
+				//onsole.log(x);
+				$('.index-background').append('<div class="title">We Share We Link</div>');
+			});
+			
+		</script>
 	</body>
 </html>
 
