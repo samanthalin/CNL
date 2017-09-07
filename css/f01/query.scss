@@ -44,33 +44,43 @@ table, tr, td {
 /*reset end */
 
 html{
-	.row{
-		margin: 0;
-	}
-	.panel-heading{
-		color: #0F6B9F !important;
-		padding: 12px 30px 8px 30px;
-	}
-	.bootstrap-panel-body{
+	body{
 		background-color: #F0F0F0;
-	}
-	.buttons{
-		text-align: center;
-	}
-	#doQryBt{
-		background-color: #2E8FC7;
-		color: white;
-	}
-	#clrQryBt{
-		background-color: #BEBEBE;
-		color: black;
-	}
-	.datagrid-toolbar{
-		display: flex;
-		justify-content: flex-end;
-	}
-	.datagrid-header .datagrid-cell{
-		color: #0F6B9F;
+		.row{
+			margin: 0;
+		}
+		.panel-heading{
+			color: #0F6B9F !important;
+			padding: 12px 30px 8px 30px;
+		}
+		.bootstrap-panel-body{
+			background-color: #F0F0F0;
+		}
+		.panel{
+			box-shadow: none;
+		}
+		.buttons{
+			text-align: center;
+		}
+		#doQryBt{
+			background-color: #2E8FC7;
+			color: white;
+		}
+		#clrQryBt{
+			background-color: #BEBEBE;
+			color: black;
+		}
+		.datagrid-toolbar{
+			display: flex;
+			justify-content: flex-end;
+		}
+		.datagrid-header .datagrid-cell{
+			color: #0F6B9F;
+		}
+		.panel-title{
+			color: #0F6B9F;
+			font-size: 14px;
+		}
 	}
 }
 

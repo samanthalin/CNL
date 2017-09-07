@@ -38,25 +38,32 @@ table, tr, td {
   border-spacing: 0; }
 
 /*reset end */
-html .row {
-  margin: 0; }
-html .panel-heading {
-  color: #0F6B9F !important;
-  padding: 12px 30px 8px 30px; }
-html .bootstrap-panel-body {
+html body {
   background-color: #F0F0F0; }
-html .buttons {
-  text-align: center; }
-html #doQryBt {
-  background-color: #2E8FC7;
-  color: white; }
-html #clrQryBt {
-  background-color: #BEBEBE;
-  color: black; }
-html .datagrid-toolbar {
-  display: flex;
-  justify-content: flex-end; }
-html .datagrid-header .datagrid-cell {
-  color: #0F6B9F; }
+  html body .row {
+    margin: 0; }
+  html body .panel-heading {
+    color: #0F6B9F !important;
+    padding: 12px 30px 8px 30px; }
+  html body .bootstrap-panel-body {
+    background-color: #F0F0F0; }
+  html body .panel {
+    box-shadow: none; }
+  html body .buttons {
+    text-align: center; }
+  html body #doQryBt {
+    background-color: #2E8FC7;
+    color: white; }
+  html body #clrQryBt {
+    background-color: #BEBEBE;
+    color: black; }
+  html body .datagrid-toolbar {
+    display: flex;
+    justify-content: flex-end; }
+  html body .datagrid-header .datagrid-cell {
+    color: #0F6B9F; }
+  html body .panel-title {
+    color: #0F6B9F;
+    font-size: 14px; }
 
 /*# sourceMappingURL=query.css.map */

@@ -446,54 +446,54 @@
                                     $(this).val(toUpperCase($(this).val()));
                                 });
 
-                                $('#doMergeBt').click(function() {
-                                    if (!$("#form").valid()) {
-                                        return;
-                                    }
-                                    if (!confirm('確認送出?')) {
-                                        return;
-                                    }
+                                // $('#doMergeBt').click(function() {
+                                //     if (!$("#form").valid()) {
+                                //         return;
+                                //     }
+                                //     if (!confirm('確認送出?')) {
+                                //         return;
+                                //     }
 
-                                    $.ajax({
-                                        url: './F010001_SCN2.action?doMergeRbacUser',
-                                        data: {
-                                            uuid: $('#uuid').val(),
-                                            userAccount: toUpperCase($('#userAccount').val()),
-                                            userNm: $('#userNm').val(),
-                                            userId: $('#userId').val(),
-                                            agentNo: $('#agentNo').val(),
-                                            mobileNo: $('#mobileNo').val(),
-                                            email: $('#email').val(),
-                                            forceChgPwd: $('#forceChgPwd').val(),
-                                            deptNo: $('#deptNoSel').val(),
-                                            accountSts: $('#accountSts').val(),
-                                            userCode: $('#userCode').val(),
-                                            userTif: $('#userTif').val(),
-                                            forceChkProfile: $('#forceChkProfile').val(),
-                                            internetAcc: $('#internetAcc').val()
-                                        },
-                                        type: 'POST',
-                                        async: false,
-                                        dataType: 'json',
-                                        success: function(json) {
-                                            if (isNotBlank(json.msg)) {
-                                                alert(json.msg);
-                                            }
+                                //     $.ajax({
+                                //         url: './F010001_SCN2.action?doMergeRbacUser',
+                                //         data: {
+                                //             uuid: $('#uuid').val(),
+                                //             userAccount: toUpperCase($('#userAccount').val()),
+                                //             userNm: $('#userNm').val(),
+                                //             userId: $('#userId').val(),
+                                //             agentNo: $('#agentNo').val(),
+                                //             mobileNo: $('#mobileNo').val(),
+                                //             email: $('#email').val(),
+                                //             forceChgPwd: $('#forceChgPwd').val(),
+                                //             deptNo: $('#deptNoSel').val(),
+                                //             accountSts: $('#accountSts').val(),
+                                //             userCode: $('#userCode').val(),
+                                //             userTif: $('#userTif').val(),
+                                //             forceChkProfile: $('#forceChkProfile').val(),
+                                //             internetAcc: $('#internetAcc').val()
+                                //         },
+                                //         type: 'POST',
+                                //         async: false,
+                                //         dataType: 'json',
+                                //         success: function(json) {
+                                //             if (isNotBlank(json.msg)) {
+                                //                 alert(json.msg);
+                                //             }
 
-                                            if (json.action == 'Y') {
-                                                alert('資料已送出');
+                                //             if (json.action == 'Y') {
+                                //                 alert('資料已送出');
 
-                                                if (opener.reloadTable) {
-                                                    opener.reloadTable();
-                                                }
-                                                if (window.opener != null) {
-                                                    window.opener = null;
-                                                    window.close();
-                                                }
-                                            }
-                                        }
-                                    });
-                                });
+                                //                 if (opener.reloadTable) {
+                                //                     opener.reloadTable();
+                                //                 }
+                                //                 if (window.opener != null) {
+                                //                     window.opener = null;
+                                //                     window.close();
+                                //                 }
+                                //             }
+                                //         }
+                                //     });
+                                // });
 
                                 $('#userAccount').blur(function() {
                                     if (isNotBlank(uuid)) {
@@ -710,6 +710,15 @@
             $('#doMergeBt').parent().removeClass('col-md-4');
             $('#doMergeBt').removeClass('btn-danger');
             $('.contentContainer').prepend('<div class="title">銀行列印型態維護</div>');
+            $('#doMergeBt').click(function(){
+                $('body').addClass('fixed');
+                $('body').append('<div class="popup"><div class="dialog"><div class="message">確認送出？</div><div class="dialog-buttons"><div class="button cancel" id="cancel">取消</div><div class="button confirm" id="confirm">確定</div></div></div></div>');
+                $('.button').click(function(){
+                    $('body').removeClass('fixed');
+                    $('.popup').remove();
+                });
+            });
+            
         });
     </script>
 </body>
